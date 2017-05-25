@@ -1,0 +1,17 @@
+{
+	"name": "Classificator",
+	"version": "1.0.0",
+	"description": "A classificator Electron application",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron ."
+	},
+	"keywords": [
+		"Electron",
+		"Classificator"
+	],
+	"author": "Light",
+	"devDependencies": {
+		"electron": "~1.6.2"
+	}
+}
