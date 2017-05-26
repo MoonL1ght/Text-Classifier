@@ -1,16 +1,16 @@
-const electron = require('electron')
-
-const app = electron.app
-
-const BrowserWindow = electron.BrowserWindow
-
 const path = require('path')
 const url = require('url')
+
+const electron = require('electron')
+const menubar = require('./menubar.js')
+
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
 
 let mainWindow
 
 function createWindow() {
-	mainWindow = new BrowserWindow({width: 800, height: 600, frame: false})
+	mainWindow = new BrowserWindow({width: 800, height: 600, resizable: false})
 	mainWindow.loadURL(url.format({
 		pathname: path.join(__dirname, '/gui/index.html'),
 		protocol: 'file:',
@@ -20,6 +20,8 @@ function createWindow() {
 		mainWindow = null
 	})
 }
+
+menubar.createMenu()
 
 app.on('ready', createWindow)
 

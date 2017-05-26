@@ -1,0 +1,15 @@
+*:focus {
+	outline: none !important;
+	outline: 0 !important;
+	outline-color: transparent !important;
+	outline-style: none !important;
+}
+
+body {
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	-o-user-select:none;
+}
