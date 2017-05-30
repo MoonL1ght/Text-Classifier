@@ -1,23 +1,75 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>Text Classificator</title>
-		<link href="./index.css" rel="stylesheet">
-		<link rel="stylesheet" href="./libs/css/foundation.css">
-		<link rel="stylesheet" href="/libs/css/app.css">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Text Classifier</title>
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="libs/css/foundation.min.css">
+		<link rel="stylesheet" href="libs/css/app.css">
 
-		<script src="./libs/js/vendor/jquery-min.js"></script>
-		<script src="./libs/js/vendor/what-input.js"></script>
-		<script src="./libs/js/vendor/foundation.min.js"></script>
-		<script src="./libs/js/app.js"></script>
-		<script src="./index.js"></script>
 	</head>
-	<body onload = "main()">
-		<h1>Text Classificator</h1>
-		<!-- All of the Node.js APIs are available in this renderer process. -->
-		We are using Node.js <script>document.write(process.versions.node)</script>,
-		Chromium <script>document.write(process.versions.chrome)</script>,
-		and Electron <script>document.write(process.versions.electron)</script>.
+	<body>
+		<div class="navbar">
+			<div class="nav-img"></div>
+			<div class="navshadow"></div>
+			<p class="title-name">Text Classifier</p>
+			<div class="logo"></div>
+			<button class="method-type-button shakeme" data-open="choose-modal">Choose Method</button>
+		</div>
+
+		<div class="mview bayes-view">
+			<h5>Naïve Bayes Text Classifier</h5>
+			<p>Naïve Bayes</p>
+			<p><b>Pros:</b> Works with a small amount of data, handles multiple classes</p>
+			<p><b>Cons:</b> Sensitive to how the input data is prepared</p>
+			<div><button type="button" class="success button">Choose File</button></div>
+		</div>
+		<div class="mview fpgrowth-view">
+			FP (Frequency Pattern) Growth Algorithm is under developing.
+		</div>
+		<div class="mview unknown">
+			<div class="coming-text">New Method</div>
+			<div class="coming-soon"></div>
+			<div class="coming-text" style="margin-top: 35px;">Stay Tuned</div>
+		</div>
+
+		<div class="reveal" id="choose-modal" style="overflow: hidden !important;" data-reveal>
+			<p class="lead" style="width: 100%; text-align: center; font-family: 'Open Sans Light' !important;">Choose Classification Method</p>
+			<div class="switch small">
+				<input class="switch-input" id="radioSwitch1" type="radio" checked name="methodGroup" value="bayes">
+				<label class="switch-paddle" for="radioSwitch1" style="left:120px;"></label>
+			</div>
+			<label style="position: absolute;" for="radioSwitch1" >
+				<span class="chm-name">Naive Bayes Classifier</span>
+			</label>
+			<div class="switch small">
+				<input class="switch-input" id="radioSwitch2" type="radio" name="methodGroup" value="fpgrowth">
+				<label class="switch-paddle" for="radioSwitch2" style="left:120px;"></label>
+			</div>
+			<label style="position: absolute;" for="radioSwitch2" >
+				<span class="chm-name">FP Growth Algorithm</span>
+			</label>
+			<div class="switch small">
+				<input class="switch-input" id="radioSwitch3" type="radio" name="methodGroup" value="unknown">
+				<label class="switch-paddle" for="radioSwitch3" style="left:120px;"></label>
+			</div>
+			<label style="position: absolute;" for="radioSwitch3" >
+				<span class="chm-name">Coming Soon ...</span>
+			</label>
+			<button class="close-button" data-close aria-label="Close reveal" type="button">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<button data-close type="button" style="margin-left:220px; font-family: 'Open Sans Light' !important;" class="success button" onclick="chooseButtonClick();">Choose Method</button>
+		</div>		
+
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		<script src="libs/js/vendor/jquery.min.js"></script>
+		<script src="libs/js/vendor/what-input.js"></script>
+		<script src="libs/js/vendor/foundation.min.js"></script>
+		<script src="libs/js/app.js"></script>
+		<script src="index.js"></script>
+		<script>if (window.module) module = window.module;</script>
 	</body>
 </html>

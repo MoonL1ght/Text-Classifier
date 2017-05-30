@@ -1,0 +1,92 @@
+*:focus {
+	outline: none !important;
+	outline: 0 !important;
+	outline-color: transparent !important;
+	outline-style: none !important;
+}
+
+body {
+	overflow: hidden;
+	cursor: default;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	-o-user-select:none;
+}
+
+.bg_image {
+	top:  -30px;
+	left: -30px;
+	width: 432px;
+	height: 270px;
+	background-image: url('../assets/author-bg.jpg');
+	position: absolute !important;
+	filter:  blur(20px) !important;
+}
+
+.shading {
+	position: absolute !important;
+	width: 432px;
+	height: 270px;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.author {
+	font-weight: 100 !important;
+	top: 40px;
+	font-size: 23px;
+	position: absolute !important;
+	font-family: 'Open Sans Light' !important;
+	width: 100%;
+	text-align: center;
+	color: white !important;
+}
+
+.author-name {
+	top: 90px;
+	font-size: 18px;
+	position: absolute !important;
+	font-family: 'Open Sans Light' !important;
+	width: 100%;
+	text-align: center;
+	color: white !important;
+}
+
+.author-info {
+	top: 160px;
+	font-size: 13px;
+	position: absolute !important;
+	font-family: 'Open Sans LightItalic' !important;
+	color: white !important;
+	width: 100%;
+	text-align: center;
+}
+
+.close-button {
+	transition-duration: 1s;
+	opacity: 0.9;
+	margin-top: 7px;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background-image: url('../assets/close.png');
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+
+}
+
+.close-button:hover {
+	transform: rotate(90deg);
+	transition-duration: 1s;
+}
+
+@font-face {
+	font-family: 'Open Sans LightItalic';
+	src: url('../assets/fonts/OpenSans-LightItalic.ttf');
+}
+
+@font-face {
+	font-family: 'Open Sans Light';
+	src: url('../assets/fonts/OpenSans-Light.ttf');
+}
