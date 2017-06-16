@@ -1,17 +1,20 @@
 {
-	"name": "Classifier",
-	"version": "1.0.0",
-	"description": "A classifier Electron application",
-	"main": "main.js",
-	"scripts": {
-		"start": "electron ."
-	},
-	"keywords": [
-		"Electron",
-		"Classifier"
-	],
-	"author": "Light",
-	"devDependencies": {
-		"electron": "~1.6.2"
-	}
+  "name": "Classifier",
+  "version": "1.0.0",
+  "description": "A classifier Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Electron",
+    "Classifier"
+  ],
+  "author": "Light",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "dependencies": {
+    "natural": "^0.5.1"
+  }
 }

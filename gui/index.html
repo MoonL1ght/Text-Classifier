@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="libs/css/app.css">
 
 	</head>
-	<body>
+	<body onload="main()">
 		<div class="navbar">
 			<div class="nav-img"></div>
 			<div class="navshadow"></div>
@@ -21,10 +21,22 @@
 
 		<div class="mview bayes-view">
 			<h5>Naïve Bayes Text Classifier</h5>
-			<p>Naïve Bayes</p>
-			<p><b>Pros:</b> Works with a small amount of data, handles multiple classes</p>
-			<p><b>Cons:</b> Sensitive to how the input data is prepared</p>
-			<div><button type="button" class="success button">Choose File</button></div>
+			<div class="primary callout">
+				<p><b>File classifier</b></p>
+				<span id="bayes-file-field">File not choosen, choose file to classify</span>
+				<div style="margin-top: 10px;">
+					<button type="button" disabled="true" class="success button" id="bayes-choosefb" onclick="chooseFileButtonClick()">Choose File</button><button type="button" class="button" id="bayes-classif" onclick="bayesClassify()">Classify File</button>
+					<b id="bayes-category" style="font-style: italic; margin-top: 6px; margin-left: 20px; position: absolute;"></b>
+					<button type="button" class="button tiny" id="bayes-missclassif" style="margin-top: 5px;float: right; display: none;" onclick="bayesMissClassify()" data-open="bayes-correct-cat">Missclassified?</button>
+				</div>
+			</div>
+			<div class="primary callout">
+				<p><b>Message classifier</b></p>
+				<div style="margin-top: 10px;">
+					<input type="text" placeholder="type your message" />
+					<button type="button" class="button" id="bayes-classifmsg" onclick="">Classify Message</button>
+				</div>
+			</div>
 		</div>
 		<div class="mview fpgrowth-view">
 			FP (Frequency Pattern) Growth Algorithm is under developing.
@@ -33,6 +45,14 @@
 			<div class="coming-text">New Method</div>
 			<div class="coming-soon"></div>
 			<div class="coming-text" style="margin-top: 35px;">Stay Tuned</div>
+		</div>
+
+		<div class="reveal" id="bayes-correct-cat" style="overflow: hidden !important;" data-reveal>
+			<p class="lead" style="width: 100%; text-align: center; font-family: 'Open Sans Light' !important;">Choose Correct Category</p>
+			<div class="correct-cats"></div>
+			<button class="close-button" data-close aria-label="Close reveal" type="button">
+				<span aria-hidden="true">&times;</span>
+			</button>
 		</div>
 
 		<div class="reveal" id="choose-modal" style="overflow: hidden !important;" data-reveal>

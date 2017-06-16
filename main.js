@@ -1,8 +1,11 @@
+'use strict'
+
 const path = require('path')
 const url = require('url')
-
 const electron = require('electron')
 const menubar = require('./menubar.js')
+const ipc = electron.ipcMain
+let method = null
 
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -34,5 +37,19 @@ app.on('window-all-closed', () => {
 app.on('activate', function() {
 	if (mainWindow === null) {
 		createWindow()
+	}
+})
+
+ipc.on('load-method', (event, msg) => {
+	if (method) {
+		method.unload()
+		method = null
+	}
+	switch (msg) {
+		case 'bayes': {
+			method = require(path.resolve(__dirname, './classifiers/bayes/bayes.js'))
+			method.load(event.sender)
+			break
+		}
 	}
 })
